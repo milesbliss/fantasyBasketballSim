@@ -1,0 +1,51 @@
+# Fantasy Basketball DB MVP Checklist
+
+- [ ] **Step 1: Create repo and enable Codespaces**
+  - Make a new GitHub repo
+  - Add `.devcontainer` folder
+  - Open in Codespaces
+
+- [ ] **Step 2: Configure dev container**
+  - Add `devcontainer.json` with Python + SQLite
+  - Install dependencies (`sqlalchemy`, `pandas`, etc.)
+
+- [ ] **Step 3: Define schema**
+  - Draft SQL schema for players, games, injuries, player_games
+
+- [ ] **Step 4: Project structure**
+  - Create `/db` for models/session
+  - Create `/scripts` for utilities
+
+- [ ] **Step 5: Implement ORM models**
+  - Add `db/models.py` with Players, Games, Injuries, PlayerGames
+
+- [ ] **Step 6: Create database session**
+  - Add `db/session.py` with engine + `SessionLocal`
+  - Add `init_db()` to create tables
+
+- [ ] **Step 7: Reset and seed scripts**
+  - `scripts/reset_db.py` to drop/recreate tables
+  - `scripts/seed_demo.py` to insert demo players/games/stats
+
+- [ ] **Step 8: CRUD utilities**
+  - `scripts/crud.py` with argparse commands:
+    - Add/list/update/delete players
+    - Add games
+    - Add player stats
+
+- [ ] **Step 9: Rebuild convenience**
+  - `scripts/rebuild.py` to run reset + seed in one go
+
+- [ ] **Step 10: Data ingestion scripts**
+  - `scripts/populate_players.py` → fetch all active players from API
+  - `scripts/populate_games.py` → fetch games from current + last season
+  - `scripts/populate_injuries.py` → fetch injury reports
+  - `scripts/populate_player_games.py` → fetch box scores for last + current season
+
+- [ ] **Step 11: Analysis & verification helpers**
+  - Add SQL views or Python helpers for per‑36 stats, shooting splits, injury summaries
+  - `scripts/verify_data.py` to check:
+    - No duplicates
+    - Valid foreign keys
+    - Correct percentages
+    - Print summary counts
