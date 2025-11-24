@@ -1,0 +1,8 @@
+{
+  "name": "Fantasy Basketball Dev",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/sqlite:1": {}
+  },
+  "postCreateCommand": "pip install sqlalchemy pandas"
+}
