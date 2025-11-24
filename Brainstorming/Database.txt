@@ -1,0 +1,101 @@
+Players
+id — primary key
+
+external_id — unique ID from NBA/ESPN/Yahoo
+
+name — player name
+
+team — current team
+
+position — position (e.g., G, F, C)
+
+active — 1 = active, 0 = inactive
+
+created_at — timestamp
+
+updated_at — timestamp
+
+Games
+id — primary key
+
+external_id — unique game identifier
+
+season — season string (e.g., "2025-26")
+
+date — game date (ISO format)
+
+home_team — home team abbreviation
+
+away_team — away team abbreviation
+
+home_score — optional final score
+
+away_score — optional final score
+
+created_at — timestamp
+
+updated_at — timestamp
+
+Injuries
+id — primary key
+
+player_id — foreign key → Players
+
+status — injury status ("out", "questionable", etc.)
+
+description — text description of injury
+
+start — start date
+
+expected_end — projected return date
+
+actual_end — actual return date
+
+source — data source (URL, feed, etc.)
+
+created_at — timestamp
+
+updated_at — timestamp
+
+Player Games (Box Scores)
+id — primary key (unique row)
+
+game_id — foreign key → Games
+
+player_id — foreign key → Players
+
+minutes — minutes played
+
+points — total points
+
+assists — assists
+
+rebounds — rebounds
+
+steals — steals
+
+blocks — blocks
+
+fg_attempts — field goal attempts
+
+fg_made — field goals made
+
+ft_attempts — free throw attempts
+
+ft_made — free throws made
+
+threes_made — 3-pointers made
+
+turnovers — turnovers
+
+plus_minus — optional +/- impact
+
+fouls — personal fouls
+
+started — 1 = starter, 0 = bench
+
+created_at — timestamp
+
+updated_at — timestamp
+
+Constraint: (player_id, game_id) must be unique
